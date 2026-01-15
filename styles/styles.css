@@ -210,13 +210,17 @@ body {
   width: 592px;
 }
 
+.advantages {
+  width: 1200px;
+  margin: 0 auto;
+}
+
 .advantages-list {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
 }
 
 .advantages-title {
@@ -226,6 +230,8 @@ body {
   line-height: 28px;
   text-transform: uppercase;
   color: inherit;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .advantages-title.second {
@@ -238,6 +244,8 @@ body {
 
 .advantages-description {
   margin: 0;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .offers-title {
@@ -246,10 +254,16 @@ body {
   text-transform: uppercase;
   color: inherit;
   margin: 30px 0;
+  text-align: center;
 }
 
 .advantages-item {
   background-color: rgba(131, 179, 211, 0.12);
+}
+
+.advantages-item.blue {
+  grid-column: 1 / -1;
+  display: flex;
 }
 
 .offers-item {
@@ -260,13 +274,19 @@ body {
   box-sizing: border-box;
 }
 .offers-description {
+  text-align: center;
   margin: 0;
 }
 
 .advantages-text {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 112px 85px;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .with-picture {
@@ -321,10 +341,8 @@ body {
 }
 
 .blue {
-display: flex;
 background-color: rgba(130, 179, 211, 1);
 color: #ffffff;
-width: 1200px;
 }
 
 .grey {
@@ -558,17 +576,22 @@ background-color: rgba(131, 179, 211, 0.2);
   margin: 0 70px;
   padding: 0;
   list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3,  340px);
+  gap: 20px;
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   width: 340px;
   background-color: #ffffff;
+  box-sizing: border-box;
 }
 
 .product-card-link {
+  display: block;
   font-size: 24px;
   line-height: 28px;
   font-weight: 700;
@@ -577,9 +600,56 @@ background-color: rgba(131, 179, 211, 0.2);
   text-decoration: none;
 }
 
+.product-card-title {
+  margin: 16px 0;
+}
+
+.product-card-image {
+  display: block;
+}
+
+.product-card-price {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
 .product-card-rating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-card-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.button-info {
+  border: none;
+  box-sizing: border-box;
   font-size: 16px;
   line-height: 20px;
+  display: inline-block;
+  width: auto;
+  padding-right: 26px;
+  padding-left: 26px;
+}
+
+.blue-background.button-info {
+  width: auto;
+  padding-right: 20.5px;
+  padding-left: 20.5px;
+}
+
+.product-rating {
+  display: flex;
+  align-self: center;
+  font-size: 16px;
+  line-height: 20px;
+  background-color: #F2F2F2;
+  padding: 8.5px 22.5px;
+  border-radius: 4px;
 }
 
 .pagination {
