@@ -98,6 +98,10 @@ body {
   z-index: 3;
 }
 
+.navigation-logo:hover {
+  opacity: 0.6;
+}
+
 .navigation-link {
   position: relative;
   display: flex;
@@ -119,6 +123,10 @@ body {
   height: 2px;
   background-color: #756257;
   content: "";
+}
+
+.navigation-link:hover {
+  opacity: 0.6;
 }
 
 .navigation-item {
@@ -521,12 +529,11 @@ background-color: rgba(131, 179, 211, 0.2);
 
 .toggle-min {
   top: -8px;
-  left: -10px;
 }
 
 .toggle-max {
   top: -8px;
-  right: -10px;
+  right: 0;
 }
 
 .select-control {
@@ -684,6 +691,7 @@ background-color: rgba(131, 179, 211, 0.2);
   width: 288px;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .fields-payment {
@@ -711,6 +719,10 @@ background-color: rgba(131, 179, 211, 0.2);
 
 .field-payment:not(:last-child) {
   margin-right: 2px;
+}
+
+.field-payment:focus {
+  outline: 3px solid #83B3D3;
 }
 
 .sorting {
@@ -744,7 +756,23 @@ background-color: rgba(131, 179, 211, 0.2);
 }
 
 .breadcrumbs-item:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 28px;
+}
+
+.breadcrumbs-item {
+  position: relative;
+}
+
+.breadcrumbs-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 21px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -20px;
+  background-image: url(../images/icons/breadcrumbs.svg);
+  background-repeat: no-repeat;
 }
 
 .catalog-icon {
@@ -1039,8 +1067,6 @@ background-color: rgba(131, 179, 211, 0.2);
   color: #000000;
 }
 
-/* ===== МОДАЛЬНОЕ ОКНО ===== */
-
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -1116,10 +1142,6 @@ background-color: rgba(131, 179, 211, 0.2);
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  margin-bottom: 48px;
-}
-
-.modal-field.finish {
   margin-bottom: 4px;
 }
 
@@ -1128,6 +1150,10 @@ background-color: rgba(131, 179, 211, 0.2);
   margin-left: 157px;
   font-size: 16px;
   color: #333333;
+}
+
+.information-text.red {
+  color: #FF5757;
 }
 
 .modal-label {
@@ -1161,6 +1187,9 @@ background-color: rgba(131, 179, 211, 0.2);
   border: none;
   box-sizing: border-box;
   border-radius: 4px;
+  background-image: url(../images/icons/date.svg);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 20px) center;
 }
 
 .modal-people {
@@ -1245,4 +1274,26 @@ background-color: rgba(131, 179, 211, 0.2);
 
 .modal-close:active::before, .modal-close:active::after {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.field-payment::-webkit-outer-spin-button,
+.field-payment::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.field-payment {
+  -moz-appearance: textfield;
+}
+
+.field-payment-label {
+  position: relative;
+}
+
+.field-payment-label span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  color: rgba(0, 0, 0, 0.3);
 }
