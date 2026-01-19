@@ -7,6 +7,50 @@
   </head>
 
   <body>
+      <section class="modal-overlay modal-hidden">
+        <div class="modal">
+          <button class="modal-close" type="button" aria-label="Закрыть"></button>
+          <h2 class="modal-title">Поиск гостиницы в Седоне</h2>
+          <form class="modal-form">
+            <p class="modal-field">
+              <label class="modal-label">Дата Заезда:</label>
+              <input class="field modal-input" type="date" required>
+            </p>
+            <p class="modal-field finish">
+              <label class="modal-label">Дата Выезда:</label>
+              <input class="field modal-input" type="date" required>
+            </p>
+            <span class="information-text">На эти даты есть свободные номера. Пока есть.</span>
+            <div class="modal-people">
+              <div class="modal-person">
+                <label class="modal-label-age">Взрослые:</label>
+                <div class="counter">
+                  <button class="button-arithmetic" type="button arithmetic">−</button>
+                  <input class="number" value="2" min="1">
+                  <button class="button-arithmetic" type="button">+</button>
+                </div>
+              </div>
+              <div class="modal-person">
+                <label class="modal-label-age children">Дети:</label>
+                <a class="info-link" href="#">
+                  <svg class="info-link-img" aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="13" cy="13" r="13" fill="#83B3D3"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 7H14V9H12V7ZM14 19H12V10H14V19Z" fill="white"/>
+                  </svg>
+                  <span class="visually-hidden">Дополнительная информация</span>
+                </a>
+                <div class="counter">
+                  <button class="button-arithmetic" type="button arithmetic">−</button>
+                  <input class="number" value="2" min="1">
+                  <button class="button-arithmetic" type="button arithmetic">+</button>
+                </div>
+              </div>
+            </div>
+            <button class="modal-submit button blue-background" type="submit" href="catalog.html">Найти</button>
+          </form>
+        </div>
+      </section>
+
     <div class="content">
       <header class="page-header">
         <nav class="navigation">
@@ -62,7 +106,7 @@
               </li>
               <li class="advantages-item">
                 <div class="advantages-text">
-                  <h3 class="advantages-title">Небольшая площадь</h3>
+                  <h3 class="advantages-title first">Небольшая площадь</h3>
                   <p class="advantages-description">Все достопримечательности находятся очень близко</p>
                 </div>
               </li>
@@ -114,13 +158,13 @@
           <section class="transition third">
             <h2 class="transition-title third">Заинтересовались?</h2>
             <p class="transition-text third">Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Седоне</p>
-            <a class="button" href="catalog.html">Поиск гостиницы в Седоне</a>
+            <button class="button open-modal" type="button">Поиск гостиницы в Седоне</button>
           </section>
           <section class="newsletter transition">
             <h2 class="transition-title subscribe">Подпишитесь на рассылку</h2>
             <p class="transition-text subscribe">Только полезная информация и никакого спама, честное бойскаутское!</p>
             <form class="newsletter-form" action="https://echo.htmlacademy.ru/" method="post">
-              <input class="field-email" placeholder="Ваш email" type="email" name="newsletter-email" id="newsletter-email">
+              <input class="field field-email" placeholder="Ваш email" type="email" name="newsletter-email" id="newsletter-email">
               <button class="button blue-background" type="submit">
                 <span class="newsletter-button-title">Подписаться</span>
               </button>
@@ -165,5 +209,30 @@
         </div>
       </footer>
     </div>
+    <script>
+      const openButton = document.querySelector('.open-modal');
+      const modal = document.querySelector('.modal-overlay');
+      const closeButton = document.querySelector('.modal-close');
+
+      openButton.addEventListener('click', () => {
+        modal.classList.remove('modal-hidden');
+      });
+
+      closeButton.addEventListener('click', () => {
+        modal.classList.add('modal-hidden');
+      });
+
+      modal.addEventListener('click', (evt) => {
+        if (evt.target === modal) {
+          modal.classList.add('modal-hidden');
+        }
+      });
+
+      window.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+          modal.classList.add('modal-hidden');
+        }
+      });
+    </script>
   </body>
 </html>
